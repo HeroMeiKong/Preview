@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+      <link rel="stylesheet" href="file:////Users/HeroMeiKong/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.2/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
       
       
       
@@ -286,7 +286,9 @@ boolean number string <span class="token keyword null nil keyword-null">null</sp
   <span class="token keyword keyword-let">let</span> p <span class="token operator">=</span> <span class="token constant">A</span>
   <span class="token keyword control-flow keyword-while">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>p <span class="token operator">===</span> <span class="token class-name">B</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">)</span> <span class="token keyword control-flow keyword-return">return</span> <span class="token boolean">true</span>
-    p <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token property-access">__proto__</span>
+    <span class="token comment">// p.__proto__ === Object.getPrototypeOf(p)</span>
+    <span class="token comment">// p = p.__proto__           // &#x4E0D;&#x63A8;&#x8350;</span>
+    p <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">getPrototypeOf</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token comment">// &#x63A8;&#x8350;</span>
   <span class="token punctuation">}</span>
   <span class="token keyword control-flow keyword-return">return</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
