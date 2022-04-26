@@ -356,6 +356,13 @@ boolean number string <span class="token keyword null nil keyword-null">null</sp
 </li>
 <li>
 <h2><code>new</code> &#x5B9E;&#x73B0;&#x539F;&#x7406;</h2>
+<p><code>new</code> &#x5173;&#x952E;&#x5B57;&#x4F1A;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ol>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x7B80;&#x5355; <code>JavaScript</code> &#x5BF9;&#x8C61;&#xFF08;&#x5373; <code>{}</code>&#xFF09;&#xFF1B;</li>
+<li>&#x4E3A;&#x6B65;&#x9AA4;1&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x5C5E;&#x6027; <code>__proto__</code>&#xFF0C;&#x5C06;&#x8BE5;&#x5C5E;&#x6027;&#x94FE;&#x63A5;&#x81F3;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x5C06;&#x6B65;&#x9AA4;1&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A; <code>this</code> &#x7684;&#x4E0A;&#x4E0B;&#x6587; &#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x8BE5;&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>this</code>&#x3002;</li>
+</ol>
 <pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-function">function</span> <span class="token function">myNew</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> <span class="token spread operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// 1.&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;&#x5BF9;&#x8C61;&#x7684; __proto__ &#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684; prototype &#x8FD9;&#x91CC;&#x6211;&#x4E24;&#x6B65;&#x4E00;&#x8D77;&#x505A;&#x4E86;</span>
   <span class="token comment">// var obj = new Object() | Object.create(null)</span>
@@ -369,6 +376,8 @@ boolean number string <span class="token keyword null nil keyword-null">null</sp
   <span class="token comment">// 3.&#x5224;&#x65AD;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;</span>
   <span class="token comment">// return res &amp;&amp; (typeof res === &quot;object&quot; || typeof res === &quot;function&quot;) ? res : obj</span>
   <span class="token keyword control-flow keyword-return">return</span> res <span class="token keyword keyword-instanceof">instanceof</span> <span class="token class-name">Object</span> <span class="token operator">?</span> res <span class="token operator">:</span> obj
+  <span class="token comment">// typeof null === &apos;object&apos; // true</span>
+  <span class="token comment">// null instanceof Object   // false</span>
 <span class="token punctuation">}</span>
 </pre> <br>
 </li>
