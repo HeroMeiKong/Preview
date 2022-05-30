@@ -10,4 +10,8 @@
 
 2021-09-06 最新大厂面经：[https://heromeikong.github.io/Preview/mds/interview.2021-09-06.html](https://heromeikong.github.io/Preview/htmls/interview.2021-09-06.html)
 
+引用：
+
+- [CavsZhouyou](https://github.com/CavsZhouyou/Front-End-Interview-Notebook)：[CavsZhouyou 的前端面试复习笔记](https://heromeikong.github.io/Preview/htmls/quotes.cavszhouyou.html)
+
 ## 其他
