@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////Users/HeroMeiKong/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.2/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:////Users/HeroMeiKong/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.3/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
       
       
       
@@ -297,6 +297,9 @@ boolean number string <span class="token keyword null nil keyword-null">null</sp
 <li>
 <h2>&#x624B;&#x5199; <code>call</code></h2>
 <pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token class-name">Function</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">call</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span> <span class="token spread operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-typeof">typeof</span> <span class="token keyword keyword-this">this</span> <span class="token operator">!==</span> <span class="token string">&apos;function&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">&apos;Error&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
   context <span class="token operator">=</span> context <span class="token operator">||</span> <span class="token dom variable">window</span>  <span class="token comment">// context &#x5982;&#x679C;&#x662F; null&#xFF0C;&#x5219;&#x6307;&#x5411; window</span>
   <span class="token keyword keyword-var">var</span> fn <span class="token operator">=</span> <span class="token known-class-name class-name">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword keyword-this">this</span>
@@ -304,11 +307,26 @@ boolean number string <span class="token keyword null nil keyword-null">null</sp
   <span class="token keyword keyword-delete">delete</span> context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span>
   <span class="token keyword control-flow keyword-return">return</span> result
 <span class="token punctuation">}</span>
+
+<span class="token class-name">Function</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">call</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-typeof">typeof</span> <span class="token keyword keyword-this">this</span> <span class="token operator">!==</span> <span class="token string">&apos;function&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">&apos;Error&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  context <span class="token operator">=</span> context <span class="token operator">||</span> <span class="token dom variable">window</span>
+  context<span class="token punctuation">.</span><span class="token property-access">fn</span> <span class="token operator">=</span> <span class="token keyword keyword-this">this</span>
+  <span class="token keyword keyword-const">const</span> args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token keyword keyword-const">const</span> result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token method function property-access">fn</span><span class="token punctuation">(</span><span class="token spread operator">...</span>args<span class="token punctuation">)</span>
+  <span class="token keyword keyword-delete">delete</span> context<span class="token punctuation">.</span><span class="token property-access">fn</span>
+  <span class="token keyword control-flow keyword-return">return</span> result
+<span class="token punctuation">}</span>
 </pre> <br>
 </li>
 <li>
 <h2>&#x624B;&#x5199; <code>apply</code></h2>
 <pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token class-name">Function</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">apply</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-typeof">typeof</span> <span class="token keyword keyword-this">this</span> <span class="token operator">!==</span> <span class="token string">&apos;function&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">&apos;Error&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
   context <span class="token operator">=</span> context <span class="token operator">||</span> <span class="token dom variable">window</span>  <span class="token comment">// context &#x5982;&#x679C;&#x662F; null&#xFF0C;&#x5219;&#x6307;&#x5411; window</span>
   <span class="token keyword keyword-var">var</span> fn <span class="token operator">=</span> <span class="token known-class-name class-name">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword keyword-this">this</span>
@@ -344,13 +362,29 @@ boolean number string <span class="token keyword null nil keyword-null">null</sp
     <span class="token punctuation">}</span> <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
       <span class="token comment">// &#x5982;&#x679C;&#x53EA;&#x662F;&#x4F5C;&#x4E3A;&#x666E;&#x901A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x76F4;&#x63A5;&#x6539;&#x53D8; this &#x6307;&#x5411;&#x4E3A;&#x4F20;&#x5165;&#x7684; context</span>
       context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token spread operator">...</span><span class="token punctuation">[</span><span class="token spread operator">...</span>args<span class="token punctuation">,</span> <span class="token spread operator">...</span>innerArgs<span class="token punctuation">]</span><span class="token punctuation">)</span>
-      <span class="token keyword keyword-delete">delete</span> context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span>
     <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword keyword-delete">delete</span> context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span>
   <span class="token comment">// &#x5982;&#x679C;&#x7ED1;&#x5B9A;&#x7684;&#x662F;&#x6784;&#x9020;&#x51FD;&#x6570; &#x90A3;&#x4E48;&#x9700;&#x8981;&#x7EE7;&#x627F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x539F;&#x578B;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;</span>
   <span class="token comment">// &#x5B9E;&#x73B0;&#x7EE7;&#x627F;&#x7684;&#x65B9;&#x5F0F;: &#x4F7F;&#x7528; Object.create</span>
   result<span class="token punctuation">.</span><span class="token property-access">prototype</span> <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">create</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">)</span>
   <span class="token keyword control-flow keyword-return">return</span> result
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Function</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">bind</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-typeof">typeof</span> <span class="token keyword keyword-this">this</span> <span class="token operator">!==</span> <span class="token string">&apos;function&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">&apos;Error&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword keyword-const">const</span> _this <span class="token operator">=</span> <span class="token keyword keyword-this">this</span>
+  <span class="token keyword keyword-const">const</span> args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token comment">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</span>
+  <span class="token keyword control-flow keyword-return">return</span> <span class="token keyword keyword-function">function</span> <span class="token constant">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// &#x56E0;&#x4E3A;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5; new F()&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5224;&#x65AD;</span>
+    <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-this">this</span> <span class="token keyword keyword-instanceof">instanceof</span> <span class="token class-name">F</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow keyword-return">return</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">_this</span><span class="token punctuation">(</span><span class="token spread operator">...</span>args<span class="token punctuation">,</span> <span class="token spread operator">...</span>arguments<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow keyword-return">return</span> _this<span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> args<span class="token punctuation">.</span><span class="token method function property-access">concat</span><span class="token punctuation">(</span><span class="token spread operator">...</span>arguments<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </pre> <br>
 </li>
