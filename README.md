@@ -15,3 +15,5 @@
 - [CavsZhouyou](https://github.com/CavsZhouyou/Front-End-Interview-Notebook)：[CavsZhouyou 的前端面试复习笔记](https://heromeikong.github.io/Preview/htmls/quotes.cavszhouyou.html)
 
 ## 其他
+
+[从 Vue2 到 Vue3 的变更](https://v3.cn.vuejs.org/guide/migration/introduction.html)：[https://heromeikong.github.io/Preview/mds/vue.vue2to3.html](https://heromeikong.github.io/Preview/mds/vue.vue2to3.html)
